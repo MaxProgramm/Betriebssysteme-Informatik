@@ -4,3 +4,6 @@ Sollte der src Ordner in euerer story noch nicht existieren erstellt ihr diesen.
 
 ### Support Material Sammlung
 Es gibt einen Material Sammlungsordner in jedem story-ornder. Wenn ihr Bilder, Quellen, pdfs oder ähnliches verwenden wollt, stellt diese in den src-ordner eurer Story. Ihr verlinkt auf diese Materialen oder bettet diese in euren Markdowns ein.
+
+### Markdown Anleitung
+https://www.markdownguide.org/basic-syntax/
