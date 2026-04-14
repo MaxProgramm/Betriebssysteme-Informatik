@@ -2,13 +2,12 @@
 
 ## 1. Ausgangslage und Notwendigkeit gemeinsamer Ressourcen
 
-Die gemeinsame Nutzung von Ressourcen (Resource Sharing) ist eine der Kernaufgaben eines modernen Betriebssystems. Ohne ein intelligentes Management würden Prozesse kollidieren, Daten korrumpieren oder das gesamte System zum Stillstand bringen.Die gemeinsame Nutzung von Ressourcen (Resource Sharing) ist eine der Kernaufgaben eines modernen Betriebssystems. Ohne ein intelligentes Management würden Prozesse kollidieren, Daten korrumpieren oder das gesamte System zum Stillstand bringen.
-
+Die gemeinsame Nutzung von Ressourcen (Resource Sharing) ist eine der Kernaufgaben eines modernen Betriebssystems.
 Die Nutzung gemeinsamer Ressourcen ist notwendig, um, Datenaustausch und die **effiziente Nutzung begrenzter Mittel** zu ermöglichen.
 
 **Zusammenarbeit von Prozessen**:
 
-- In dem meisten Systemen müssen verschiedene Akteure Informationen austauschen können
+- In den meisten Systemen müssen verschiedene Akteure Informationen austauschen können
 - Eine gemeinsame Ressource dient hier als **Schnittstelle**:
   - Erzeuger kann Informationen ablegen
   - Verbraucher kann Informationen entnehmen
@@ -34,30 +33,22 @@ Dieses Problem tritt auf, wenn zwei Prozesse (Threads) einen gemeinsamen Zwische
 
 **Das Erzeuger-Verbraucher-Problem:**
 
-- Ein Erzeuger produziert Daten oder Objekte und legt sie in einem Zwischenspeicher ab.
-- Ein Verbraucher entnimmt diese Objekte aus dem Speicher.
-- Problematik: Wenn der Speicher voll ist, kann der Erzeuger nichts ablegen; ist er leer, kann der Verbraucher nichts entnehmen. Ohne Absprache verschwenden die Threads Zeit durch aktives Warten (Busy Waiting), indem sie ständig prüfen, ob der Speicher bereit ist.
+1. Ein Erzeuger produziert Daten oder Objekte und legt sie in einem Zwischenspeicher ab.
+2. Ein Verbraucher entnimmt diese Objekte aus dem Speicher.
+3. **Problematik**: Wenn der Speicher voll ist, kann der Erzeuger nichts ablegen; ist er leer, kann der Verbraucher nichts entnehmen. Ohne Absprache verschwenden die Threads Zeit durch aktives Warten (Busy Waiting), indem sie ständig prüfen, ob der Speicher bereit ist.
 
 **Koordinationsmangel**: Ein Erzeuger könnte versuchen, Daten in einen bereits vollen Speicher zu schreiben, oder ein Verbraucher versucht, Daten aus einem leeren Speicher zu lesen.
 
-**Ineffizienz**:
-
-- **Aktives Warten / Busy Waiting**: Ständige Überprüfung durch einen Thread ob eine Ressource frei ist -> verschwendet Rechenzeit
-
-**Lösung durch passives Warten:**
-
-- Anstatt ständig zu prüfen, wird ein Thread in einen Wartezustand versetzt (Warten()), wenn die Bedingung (z. B. Speicher voll) nicht erfüllt ist.
-- Sobald sich der Zustand ändert (z. B. Verbraucher hat Platz geschaffen), wird der wartende Thread informiert (Benachrichtigen()).
-- Dies wird oft durch Monitore oder Semaphore realisiert.
+**Ineffizienz durch Aktives Warten (Busy Waiting)**: Ständige Überprüfung durch einen Thread ob eine Ressource frei ist -> verschwendet Rechenzeit
 
 ### Leser-Schreiber-Probleme
 
-Dieses Problem tritt auf wenn mehrere Prozesse gleichzeitig auf eine Ressource zugreifen wollen. Die Methoden im Code, die zum Zugriff auf diese gemeinsamen Ressourcen benötigt werden, bilden den sogennanten **kritischen Abschnitt**.
+Dieses Problem tritt auf wenn mehrere Prozesse gleichzeitig auf eine Ressource zugreifen wollen. Die Methoden im Code, die zum Zugriff auf diese gemeinsamen Ressourcen benötigt werden, bilden den sogennanten **kritischen Abschnitt** (also einen bestimmten Teilbereich des Codes).
 Der kritische Abschnitt darf nur von einem Prozess gleichzeitig ausgeführt werden, um Dateninkonsistenzen zu verhindern.
 
 **Das Leser-Schreiber-Problem:**
 
-- Hier greifen zwei Arten von Threads auf Daten (z. B. eine Datenbank) zu.
+- Hier greifen zwei Arten (Leser und Schreiber) von Threads auf Daten (z. B. eine Datenbank) zu.
 - Regeln: Beliebig viele Leser dürfen gleichzeitig zugreifen, da sie Daten nicht verändern. Ein Schreiber benötigt jedoch exklusiven Zugriff; während er schreibt, darf niemand sonst lesen oder schreiben, um Inkonsistenzen zu vermeiden.
 - Es müssen Strategien entwickelt werden, damit z. B. Schreiber nicht durch einen stetigen Strom an Lesern „verhungern“.
 
@@ -76,8 +67,6 @@ Für den kritischen Abschnitt gelten 3 Bedingungen:
 
 Ein Deadlock ist ein Zustand, in dem eine Gruppe von Threads sich gegenseitig blockiert, weil jeder auf eine Ressource wartet, die ein anderer aus der Gruppe besetzt hält (-> Problem der speisenden Philosophen).
 
-Die **vier Coffman-Bedingungen** für Deadlocks: Damit eine Verklemmung überhaupt entstehen kann, müssen vier Bedingungen gleichzeitig erfüllt sein.
-
 Damit ein Deadlock entstehen kann, müssen die **vier Coffman-Bedingungen** erfüllt sein:
 
 1. **Wechselseitiger Ausschluss (Mutual Exclusion)**: Mindestens eine Ressource wird nicht-teilbar genutzt. Nur ein Prozess kann die Ressource exklusiv verwenden.
@@ -85,10 +74,10 @@ Damit ein Deadlock entstehen kann, müssen die **vier Coffman-Bedingungen** erf�
 3. **Ununterbrechbarkeit**: Ressourcen können einem Thread nicht entzogen werden. Sie werden nur frei, wenn der Thread sie abgibt.
 4. **Zyklisches Warten**: Es entscheht eine geschlossene Kette von Prozessen ($P_0, P_1, ..., P_n$), die jeweils auf eine Ressource des nächsten Threads warten: $P_0$ wartet auf $P_1$, dieser auf $P_2$ und $P_n$ schließlich auf $P_0$.
 
-**Strategien zur Vermeidung**: Um Deadlocks zu verhindern, muss mindestens eine der Coffman-Bedingungen gezielt außer Kraft gesetzt werden.
+**Vermeiden von Deadlocks**: Um Deadlocks zu verhindern, muss mindestens eine der Coffman-Bedingungen gezielt außer Kraft gesetzt werden.
 
 ## 4. Warum ist wechselseitiger Ausschluss notwendig?
 
-- Der kritsiche Abschnitt darf nur von einem Prozess gleichzeitig ausgeführt werden, um Dateninkonsistenzen zu verhindern.
+- Der kritische Abschnitt darf nur von einem Prozess gleichzeitig ausgeführt werden, um Dateninkonsistenzen zu verhindern.
 - **Wechselseitiger Ausschluss (Mutual Exclusion)**: Wenn ein Prozess seinen kritischen Abschnitt ausführt, darf kein anderer Prozess im kritischen Abschnitt derselben Ressource sein. Nur ein Prozess zur gleichen Zeit.
 - Regeln: Beliebig viele Leser dürfen gleichzeitig zugreifen, da sie Daten nicht verändern. Ein Schreiber benötigt jedoch exklusiven Zugriff; während er schreibt, darf niemand sonst lesen oder schreiben, um Inkonsistenzen zu vermeiden.
