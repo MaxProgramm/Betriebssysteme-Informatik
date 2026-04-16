@@ -50,6 +50,16 @@ Da Anwendungen im User-Mode nicht direkt auf die Hardware zugreifen dürfen, nut
 
 ![](https://phoenixnap.com/kb/wp-content/uploads/2023/08/system-call-steps-execution.png)
 
+### Beispiele für Syscalls:
+
+| Syscall | Aktion |
+|----------|----------|
+| uname | Liefert Informationen über den laufenden Kernel (z.B. die Versionsnummer) |
+| exit | Beendet den aktuell laufenden Prozess |
+| time | Liefert die aktuelel Zeit |
+
+Quelle: Schulbuch Q12 S. 242/243
+
 
 ##### Warum ist diese Trennung notwendig?
 - **Schutz vor Fehlern:** Verhindert, dass ein fehlerhaftes Programm den Speicher eines anderen Programms überschreibt oder das System einfriert.
