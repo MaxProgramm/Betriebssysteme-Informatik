@@ -3,7 +3,7 @@
 ## 1. Ausgangslage und Notwendigkeit gemeinsamer Ressourcen
 
 Die gemeinsame Nutzung von Ressourcen (Resource Sharing) ist eine der Kernaufgaben eines modernen Betriebssystems.
-Die Nutzung gemeinsamer Ressourcen ist notwendig, um, Datenaustausch und die **effiziente Nutzung begrenzter Mittel** zu ermöglichen.
+Die Nutzung gemeinsamer Ressourcen ist notwendig, um Datenaustausch und die **effiziente Nutzung begrenzter Mittel** zu ermöglichen.
 
 **Zusammenarbeit von Prozessen**:
 
