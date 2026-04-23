@@ -8,12 +8,23 @@ sind Graphen, die visualisieren, welche Threads welche Ressourcen belegen bzw. a
 | Thread | Ressource | Belegung | Anforderung |
 | ------ | --------- | -------- | ----------- |
 | ![](Bilder/B-Thread.png) <br> Runde Ecken/Kreis| ![](Bilder/B-Ressource.png) <br> Rechteck| ![](Bilder/B-Belegung.png) | ![](Bilder/B-Anforderung.png) <br> Auch als gestrichelter Pfeil möglich|
+<br>  
+<br>  
+<br>  
 
 ![fail](Bilder/B-Beispiel.png)
-Je nach Ausführung der Prozesse kann dabei eine zyklische Wartesituation entstehen, die auf einen Deadlock visualisiert.
+<br>  
+<br>  
+<br>  
+Je nach Ablauf kann dabei eine zyklische Wartesituation, wie im obigen Beispiel zu sehen, entstehen, die auf einen Deadlock visualisiert.
+Beispiel mit 3 Abläufen, 3 Betriebsmitteln und folgendem Aufbau der Abläufe:
+<br>  
 
+![](Bilder/B-situation.png)
+<br>  
+<br>  
 | Ausführung mit Deadlock | Ausführung mit Deadlock |
 | ----------------------- | ----------------------- |
-
+| ![](Bilder/B-with.png) | ![](Bilder/B-without.png) |
 
 
