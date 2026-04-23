@@ -69,6 +69,7 @@ In der Round Robin Scheduling Strategie rotiert das System (OS) durch jeden anst
 - Großer Overhead wenn der Quantum (Quantum Time) zu klein ist
 - Fühlt sich langsam an wenn der Quantum zu groß ist
   
+---------------
 
 ### **Shortest-Job-First (SJF)**
 Wie der Name schon sagt wird der kürzester Prozess, also der Prozess mit der wenigsten BT, ausgeführt.  
