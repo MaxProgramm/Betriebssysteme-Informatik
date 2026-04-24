@@ -34,4 +34,5 @@ Hierfür gibt es auch 2 Lösungsansätze:
 1. Der Prozess muss eine Ressource sofort freigeben, wenn er sie nicht mehr braucht.
 2. Wenn ein Prozess eine Ressource verlangt die nicht verfügbar ist, muss er all seine Ressourcen freigeben bis alle Ressourcen die er braucht frei werden (*partial allocation* verhindern)
 
-#### Circular Wait lösen
+#### Circular Wait lösen  
+Jede Ressource bekommt eine ID, Prozesse können nur Ressourcen in dieser Reihenfolge beantragen
