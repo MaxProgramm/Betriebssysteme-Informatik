@@ -18,7 +18,7 @@ Ein Monitor besteht grundlegend aus drei Komponenten:
 ### Funktionsweise eines Monitors
 
 - **Eintritt**: Ein Thread ruft eine Methode des Monitors auf. Ist kein anderer Thread im Monitor, so kann er "eintreten" und die Methode ausführen.
-- **Wechselseitiger Ausschluss**: Ist ein Thread in einem Monitor, so wird er gesperrt. Jede Thread, der jetzt eintreten will, landet auf einer Warteschlange.
+- **Wechselseitiger Ausschluss**: Ist ein Thread in einem Monitor, so wird er gesperrt. Jeder Thread, der jetzt eintreten will, landet auf einer Warteschlange.
 - **Bedingungsvariablen**: Manchmal muss ein Thread innerhalb eines Monitors warten bis eine Bedingung erfüllt ist. Er wird in einen Sleep-Zustand versetzt. Der Monitor ist dann vorübergehen frei, bis die Bedingung erfüllt ist und der Thread "geweckt" wird.
 
 ### Warteschlangen und Signalisierung
