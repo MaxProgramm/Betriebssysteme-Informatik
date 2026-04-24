@@ -13,7 +13,10 @@ class Konto {
         while (kontostand < betrag) {
             try {
                 wait();
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
         }
         kontostand -= betrag;
         System.out.println("Abgehoben: " + betrag + " | Stand: " + kontostand);
