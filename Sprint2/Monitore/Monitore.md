@@ -56,4 +56,4 @@ In [monitor.java](monitor.java) ist ein Code-Snippet enthalten, in dem eine Klas
 In [monitor-multiclass.java](monitor-multiclass.java) und [monitor-multiclass.py](monitor-multiclass.py) sind Code-Snippets, in denen jeweils drei Klassen bzw. Rollen implementiert sind: ein Monitor, ein Erzeuger und ein Verbraucher.
 
 In Python wird ein **Lock- bzw. Condition-Objekt** verwendet, um den Monitor zu realisieren. 
-In Java kann jedes Klasse nativ als Monitor fungieren. Das Schlüsselwort ```synchronized``` fügt eine Methode zum **kritischen Abschnitt** der Klasse hinzu, um **wechselseitigen Ausschluss** zu ermöglichen.
+In Java kann jede Klasse nativ als Monitor fungieren. Das Schlüsselwort ```synchronized``` fügt eine Methode zum **kritischen Abschnitt** der Klasse hinzu, um **wechselseitigen Ausschluss** zu ermöglichen.
